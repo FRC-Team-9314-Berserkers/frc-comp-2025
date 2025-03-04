@@ -1,0 +1,18 @@
+{
+    "Buttons": [
+        {"A": "shoot"},
+        {"Left": "measure"},
+        {"Up": "lifterUp"},
+        {"LeftStick": "quickStop"},
+        {"Down": "lifterDown"},
+        {"RightBumper": "loaderRaise"},
+        {"LeftBumper": "loaderLower"}
+    ],
+
+    "Analogs": [
+        {"LeftTrigger": ""},
+        {"RightTrigger": "shoot"},
+        {"LeftStickY": "setLeftDriveSpeed"},
+        {"LeftStickX": "setRightDriveSpeed"}
+    ]
+}
