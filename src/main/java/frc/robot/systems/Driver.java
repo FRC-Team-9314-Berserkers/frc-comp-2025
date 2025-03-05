@@ -1,7 +1,7 @@
 package frc.robot.systems; // Package declaration
 
-import com.revrobotics.CANSparkMax; // Import CANSparkMax from revrobotics
-import com.revrobotics.CANSparkLowLevel.MotorType; // Import MotorType from CANSparkLowLevel
+import com.revrobotics.spark.SparkMax; // Import CANSparkMax from revrobotics
+import com.revrobotics.spark.SparkLowLevel.MotorType; // Import MotorType from CANSparkLowLevel
 
 
 import edu.wpi.first.wpilibj.GenericHID.RumbleType; // Import haptic feedback
@@ -27,10 +27,10 @@ public class Driver extends System{
     boolean quickStopped; // Quick stop flag
 
     /** All Drive Motors: */
-    private final CANSparkMax motorLeft1 = new CANSparkMax(4, MotorType.kBrushed);
-    private final CANSparkMax motorRight1 = new CANSparkMax(6, MotorType.kBrushed);
-    private final CANSparkMax motorLeft2 = new CANSparkMax(5, MotorType.kBrushed);
-    private final CANSparkMax motorRight2 = new CANSparkMax(7, MotorType.kBrushed);
+    private final SparkMax motorLeft1 = new SparkMax(4, MotorType.kBrushed);
+    private final SparkMax motorRight1 = new SparkMax(6, MotorType.kBrushed);
+    private final SparkMax motorLeft2 = new SparkMax(5, MotorType.kBrushed);
+    private final SparkMax motorRight2 = new SparkMax(7, MotorType.kBrushed);
 
     /** Drive Motor Groups */
     private final MotorControllerGroup leftMotors = new MotorControllerGroup(motorLeft1, motorLeft2);

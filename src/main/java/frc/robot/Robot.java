@@ -30,10 +30,7 @@ public class Robot extends TimedRobot {
 
   //Systems
   public static Driver driver; // Initalize the variable for the  driver system
-  public static Shooter shooter; // Initalize the variable for the shooter system
-  public static Controller controller; // Initalize the variable for the controller system
-  public static Lifter lifter; // Initalize the variable for the lifter system
-  public static Loader loader; // Initalize the variable for the loader system
+  public static Controller controller; // Initalize the variable for the controller syste
   public static Vision vision; // Initalize the variable for the vision system
 
   AutoMode auto1; // Autonomous mode for testing
@@ -47,10 +44,7 @@ public class Robot extends TimedRobot {
 
     //Setup Systems
     driver = new Driver(); // Initialize the driver system
-    shooter = new Shooter(); // Initialize the shooter system
     controller = new Controller(); // Initialize the controller system
-    lifter = new Lifter(); // Initialize the lifter system
-    loader = new Loader(); // Initialize the loader system
     vision = new Vision(); // Initialize the vision system
 
     //Set up actions
@@ -118,9 +112,6 @@ public class Robot extends TimedRobot {
     autoPrime.update(); // Update the autonomous mode
 
     driver.update(); // Update the driver system
-    shooter.update(); // Update the shooter system
-    lifter.update(); // Update the lifter system
-    loader.update(); // Update the loader system
     vision.update(); // Update the vision system
   }
 
@@ -137,9 +128,6 @@ public class Robot extends TimedRobot {
     controller.update(); // Update the controller system
 
     driver.update(); // Update the driver system
-    shooter.update(); // Update the shooter system
-    lifter.update(); // Update the lifter system
-    loader.update(); // Update the loader system
     vision.update(); // Update the vision system
   }
 
@@ -147,8 +135,7 @@ public class Robot extends TimedRobot {
   @Override
   public void disabledInit() {
     Util.log("Robot Disabled.");
-    lifter.stop(); // Stop the lifter system
-    shooter.stop(); // Stop the shooter system
+
     //driver.quickStop();
   }
 
