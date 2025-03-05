@@ -2,10 +2,10 @@ package frc.robot.systems; // Package declaration
 
 import com.revrobotics.spark.SparkMax; // Import CANSparkMax from revrobotics
 import com.revrobotics.spark.SparkLowLevel.MotorType; // Import MotorType from CANSparkLowLevel
+//mport com.revrobotics.spark.config.SparkMaxConfig;
 
-
-import edu.wpi.first.wpilibj.GenericHID.RumbleType; // Import haptic feedback
-import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup; // Import motor controller group
+//import edu.wpi.first.wpilibj.GenericHID.RumbleType; // Import haptic feedback
+//import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup; // Import motor controller group
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard; // Import SmartDashboard
 import frc.robot.Robot; // Import Robot
 import frc.robot.Util; // Import Utility
@@ -27,17 +27,14 @@ public class Driver extends System{
     boolean quickStopped; // Quick stop flag
 
     /** All Drive Motors: */
-    private final SparkMax motorLeft1 = new SparkMax(4, MotorType.kBrushed);
-    private final SparkMax motorRight1 = new SparkMax(6, MotorType.kBrushed);
-    private final SparkMax motorLeft2 = new SparkMax(5, MotorType.kBrushed);
-    private final SparkMax motorRight2 = new SparkMax(7, MotorType.kBrushed);
+    private final SparkMax motorLeft1 = new SparkMax(4, SparkMax.MotorType.kBrushed);
+    private final SparkMax motorRight1 = new SparkMax(6, SparkMax.MotorType.kBrushed);
+    private final SparkMax motorLeft2 = new SparkMax(5, SparkMax.MotorType.kBrushed);
+    private final SparkMax motorRight2 = new SparkMax(7, SparkMax.MotorType.kBrushed);
 
     /** Drive Motor Groups */
-    private final MotorControllerGroup leftMotors = new MotorControllerGroup(motorLeft1, motorLeft2);
-    private final MotorControllerGroup rightMotors = new MotorControllerGroup(motorRight1, motorRight2);
 
 
-    
   
     public Driver() {
         /** Driving is disabled if true. */
@@ -45,8 +42,7 @@ public class Driver extends System{
 
         maxSpeed = 0.25f; // Max speed is 0.25
         speedFalloff = 0.89f; // Speed falloff is 0.89
-        rightMotors.setInverted(true); // Invert right motors
-        
+        //rightMotors.setInverted(true); // Invert right motors
 
         SmartDashboard.putNumber("Drive Speed: ", maxSpeed); // Put drive speed on SmartDashboard
         
@@ -102,11 +98,15 @@ public class Driver extends System{
         }
 
         //Util.log("" + vl);
+        vr = vr*-1; // Reverse right velocity
         
-
+        motorLeft1.set(vl); // Set left motor 1 to left velocity
+        motorLeft2.set(vl); // Set left motor 2 to left velocity
         
-        leftMotors.set(vl); // Set left motors to left velocity
-        rightMotors.set(vr); // Set right motors to right velocity
+        motorRight1.set(vr); // Set right motor 1 to right velocity
+        motorRight2.set(vr); // Set right motor 2 to right velocity
+       // leftMotors.set(vl); // Set left motors to left velocity
+      //  rightMotors.set(vr); // Set right motors to right velocity
 
         //Robot.controller.xbox1.setRumble(RumbleType.kLeftRumble, Math.abs(vl));
         //Robot.controller.xbox1.setRumble(RumbleType.kRightRumble, Math.abs(vr));
