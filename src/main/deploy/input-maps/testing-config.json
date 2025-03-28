@@ -3,7 +3,7 @@
         {"A": "elevatorDown"},
         {"B": "elevatorUp"},
         {"X": "elevatorStop"},
-        {"Y": "elevatorZero"}
+        {"Y": "elevatorEncoderZero"}
         
     ],
 
