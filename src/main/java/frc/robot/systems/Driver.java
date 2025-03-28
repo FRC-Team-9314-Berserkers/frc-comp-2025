@@ -105,10 +105,10 @@ public class Driver extends System{
         
 
         
-        motorLeft1.set(vl); // Set left motors to left velocity
-        motorLeft2.set(vl); // Set right motors to right velocity
-        motorRight1.set(vr); // Set left motors to left velocity
-        motorRight2.set(vr); // Set right motors to right velocity
+        motorLeft1.set(-vl); // Set left motors to left velocity
+        motorLeft2.set(-vl); // Set right motors to right velocity
+        motorRight1.set(-vr); // Set left motors to left velocity
+        motorRight2.set(-vr); // Set right motors to right velocity
 
         //Robot.controller.xbox1.setRumble(RumbleType.kLeftRumble, Math.abs(vl));
         //Robot.controller.xbox1.setRumble(RumbleType.kRightRumble, Math.abs(vr));

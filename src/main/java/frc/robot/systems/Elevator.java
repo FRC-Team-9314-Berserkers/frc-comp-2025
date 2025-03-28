@@ -20,7 +20,9 @@ public class Elevator extends System {
    private int desiredElevatorPosition = 0;
    private int minElevatorLevel = 0;
    private int maxElevatorLevel = 5;
-   private double elevatorWeightCounter = 0.05;
+
+   private double elevatorWeightCounter = 0.01;
+   
    private double elevatorPosition0 = 0;
    private double elevatorPosition1 = 10;
    private double elevatorPosition2 = 15;
@@ -105,6 +107,11 @@ public class Elevator extends System {
             desiredElevatorPosition = position;
             return true;
         }
+    }
+
+    public void stop(){
+        elevatorMotor1.set(elevatorWeightCounter);
+        elevatorMotor2.set(elevatorWeightCounter);
     }
 
     public void test(double speed){

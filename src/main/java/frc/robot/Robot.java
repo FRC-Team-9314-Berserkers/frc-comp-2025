@@ -102,7 +102,7 @@ public class Robot extends TimedRobot {
     auto1.add(new AutoAction(() -> {Util.log("222"); return true;})); // Print "222" to the console
 
     autoPrime = new AutoMode("Auto Drive Forward"); // Create a new autonomous mode
-    autoPrime.add(new AutoAction(1.0f, ()->{return true;}, () -> {Robot.driver.straight(-0.2f);return true;})); // Makes the robot drive backward for 1.8 seconds at 0.2 speed
+    autoPrime.add(new AutoAction(1.0f, ()->{return true;}, () -> {Robot.driver.straight(0.2f);return true;})); // Makes the robot drive backward for 1.8 seconds at 0.2 speed
     autoPrime.add(new AutoAction(0.2f, () -> {Robot.driver.straight(0.0f);return true;})); // Makes the robot stop driving. Runs for 0.2 seconds.
 
     autoPrime.start(); // Initialize the autonomous mode
@@ -181,6 +181,7 @@ public class Robot extends TimedRobot {
   // Util.log(String.valueOf(Math.round(elevator.getEncoder()* Math.pow(10,2))));
   // elevator.test(0.12);
   controller.update();
+ // elevator.update();
   Util.log(String.valueOf(elevator.getEncoder(1)) + ":::::" + String.valueOf(elevator.getEncoder(2)));
     //Util.log(elevator.desiredElev atorPosition);
   } 
