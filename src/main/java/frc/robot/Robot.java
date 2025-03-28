@@ -33,7 +33,7 @@ public class Robot extends TimedRobot {
   private static final String kCustomAuto = "My Auto"; // No current purpose
   private String m_autoSelected; // No current purpose
   private final SendableChooser<String> m_chooser = new SendableChooser<>(); // No current purpose
- 
+  boolean setAutoMode;
   int AutonomousTime = 50;
   //Drive Motor Controllers now in Driver system
 
@@ -48,13 +48,16 @@ public class Robot extends TimedRobot {
 
   AutoMode auto1; // Autonomous mode for testing
   private AutoMode autoPrime; // Autonomous mode for driving forward
+  private AutoMode autoBack;
 
   @Override
   public void robotInit() { // This function is called once when the robot is first started up.
-    m_chooser.setDefaultOption("Default Auto", kDefaultAuto); // No current purpose
-    m_chooser.addOption("My Auto", kCustomAuto); // No Current Purpose
+    /* 
+    m_chooser.setDefaultOption("Forward Auto", kDefaultAuto); // No current purpose
+    m_chooser.addOption("Backward Auto", kCustomAuto); // No Current Purpose
     SmartDashboard.putData("Auto choices", m_chooser); // No Current Purpose
-
+  */
+  SmartDashboard.putBoolean("Auto Forward", true);
     //Setup Systems
     driver = new Driver(); // Initialize the driver system
    // shooter = new Shooter(); // Initialize the shooter system
@@ -93,9 +96,13 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
     Util.log("Autonomous started.");
+    /*
     m_autoSelected = m_chooser.getSelected();
-    // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
+     m_autoSelected = SmartDashboard.getString("Auto choices", "yay");
+     Util.log("AUTO MODE SET ::::::::::::::::::::::::" + m_autoSelected);
+     */
     //Util.log("Auto selected: " + m_autoSelected);
+     setAutoMode = SmartDashboard.getBoolean("Auto Forward", true);
 
     auto1 = new AutoMode("auto1"); // Create a new autonomous mode
     auto1.add(new AutoAction(() -> {Util.log("111"); return true;})); // Print "111" to the console
@@ -105,7 +112,16 @@ public class Robot extends TimedRobot {
     autoPrime.add(new AutoAction(1.0f, ()->{return true;}, () -> {Robot.driver.straight(0.2f);return true;})); // Makes the robot drive backward for 1.8 seconds at 0.2 speed
     autoPrime.add(new AutoAction(0.2f, () -> {Robot.driver.straight(0.0f);return true;})); // Makes the robot stop driving. Runs for 0.2 seconds.
 
-    autoPrime.start(); // Initialize the autonomous mode
+    autoBack = new AutoMode("Auto Backward");
+    autoBack.add(new AutoAction(1.0f, ()->{return true;}, () -> {Robot.driver.straight(-0.2f);return true;}));
+    autoBack.add(new AutoAction(0.2f, () -> {Robot.driver.straight(0.0f);return true;}));
+
+    if (!setAutoMode){
+      autoPrime.start(); // Initialize the autonomous mode
+    } else {
+      autoBack.start();
+    }
+    Util.log(m_autoSelected);
   }
 
   /** This function is called periodically during autonomous. */
@@ -124,8 +140,12 @@ public class Robot extends TimedRobot {
         //driver.straight(0.2f);
         break;
     }*/
-
-    autoPrime.update(); // Update the autonomous mode
+    if (!setAutoMode){
+      autoPrime.update(); // Initialize the autonomous mode
+    } else {
+      autoBack.update();
+    }
+   // autoPrime.update(); // Update the autonomous mode
 
     driver.update(); // Update the driver system
    // shooter.update(); // Update the shooter system
