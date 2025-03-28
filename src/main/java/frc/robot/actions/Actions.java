@@ -13,7 +13,8 @@ public enum Actions {
     setLeftDriveSpeed (new AnalogAction((Float x) -> {return Robot.driver.setLeftDrive(x);})), // Set the left drive speed
     setRightDriveSpeed (new AnalogAction((Float x) -> {return Robot.driver.setRightDrive(x);})), // Set the right drive speed
     quickStop (new ButtonAction(() -> {return Robot.driver.quickStop();}, () -> {return Robot.driver.quickStopRelease();})), // Quick stop the robot
-    
+    upSpeed (new ButtonAction(() -> {return true;},()-> {return true;}, ()-> {Robot.driver.speedUp(); return true;})),
+    downSpeed (new ButtonAction(() -> {return true;}, ()-> {return true;}, ()-> {Robot.driver.speedDown(); return true;})),
     //Lifter Actions
   //  lifterUp (new ButtonAction(() -> {Robot.lifter.liftArmUp(); return true;}, () -> {Robot.lifter.stop(); return true;})), // Lift the lifter arm up
   //  lifterDown (new ButtonAction(() -> {Robot.lifter.liftArmDown(); return true;}, () -> {Robot.lifter.stop(); return true;})), // Lift the lifter arm down

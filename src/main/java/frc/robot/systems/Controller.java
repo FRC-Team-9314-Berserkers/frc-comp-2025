@@ -33,10 +33,12 @@ public class Controller extends System {
         Y(4),
         LeftBumper(5),
         RightBumper(6),
-        Back(7),
-        Start(8),
+        //Back(7),
+        //Start(8),
         LeftStick(9),
         RightStick(10),
+        LeftTrigger(7),
+        RightTrigger(8),
 
         //POV
         Up(0+1000), // D-Pad Up (value 1000)

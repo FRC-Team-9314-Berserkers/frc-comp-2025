@@ -129,6 +129,33 @@ public class Driver extends System{
         
     }
 
+   public void speedUp(){
+            double newMaxSpeed =  maxSpeed + 0.005;
+            if (newMaxSpeed != maxSpeed) { // If new max speed is not equal to max speed
+                if (newMaxSpeed > 0.4) { // If new max speed is greater than 0.4
+                    newMaxSpeed = 0.1f; // Set new max speed to 0.1
+                }
+                if (newMaxSpeed < 0.002) { // If new max speed is less than 0.002
+                    newMaxSpeed = 0.1f; // Set new max speed to 0.1
+                }
+                maxSpeed = (float) newMaxSpeed;
+            SmartDashboard.putNumber("Drive Speed: ", maxSpeed);
+        }
+    }
+
+    public void speedDown(){
+        double newMaxSpeed =  maxSpeed - 0.005;
+        if (newMaxSpeed != maxSpeed) { // If new max speed is not equal to max speed
+            if (newMaxSpeed > 0.4) { // If new max speed is greater than 0.4
+                newMaxSpeed = 0.1f; // Set new max speed to 0.1
+            }
+            if (newMaxSpeed < 0.002) { // If new max speed is less than 0.002
+                newMaxSpeed = 0.1f; // Set new max speed to 0.1
+            }
+            maxSpeed = (float) newMaxSpeed;
+        SmartDashboard.putNumber("Drive Speed: ", maxSpeed);
+    }
+}
     
     /** Set both motor controller groups*/
     public void setDrive (float left, float right) { // Set drive with left and right values

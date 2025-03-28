@@ -2,12 +2,14 @@
     "Buttons": [
         {"RightBumper": "elevatorRaise"},
         {"LeftBumper": "elevatorLower"},
-        {"A": "elevatorLoad"}
+        {"A": "elevatorLoad"},
+        {"LeftTrigger": "upSpeed"},
+        {"RightTrigger": "downSpeed"}
     ],
 
     "Analogs": [
-        {"LeftStickY": "setLeftDriveSpeed"},
-        {"RightStickY": "setRightDriveSpeed"}
+        {"RightStickY": "setLeftDriveSpeed"},
+        {"LeftStickY": "setRightDriveSpeed"}
 
      
     ]
