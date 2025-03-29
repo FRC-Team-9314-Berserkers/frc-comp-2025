@@ -45,6 +45,7 @@ public class Robot extends TimedRobot {
  // public static Loader loader; // Initalize the variable for the loader system
   public static Vision vision; // Initalize the variable for the vision system
   public static Elevator elevator; // Initalize the variable for the elevator system
+  public static Output output;
 
   AutoMode auto1; // Autonomous mode for testing
   private AutoMode autoPrime; // Autonomous mode for driving forward
@@ -66,6 +67,7 @@ public class Robot extends TimedRobot {
    // loader = new Loader(); // Initialize the loader system
     vision = new Vision(); // Initialize the vision system
     elevator = new Elevator(); // Initialize the elevator system
+
     //Set up actions
     //WIP
 

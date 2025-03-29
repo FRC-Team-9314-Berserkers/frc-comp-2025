@@ -35,6 +35,9 @@ public enum Actions {
     elevatorDown (new ButtonAction(() -> {Robot.elevator.test(-0.12); return true;})),
     elevatorStop (new ButtonAction(() -> {Robot.elevator.stop(); return true;})),
     elevatorEncoderZero (new ButtonAction(() -> {Robot.elevator.encoderSetZero(); return true;})),
+    //Output Actions
+    outputOut (new ButtonAction(()->{Robot.output.outOut(); return true;},()-> {Robot.output.outStop(); return true;})),
+    outputIntake (new ButtonAction(()-> {Robot.output.intake(); return true;})),
     //Camera Actions
     cameraLeft (new ButtonAction(() -> {Robot.vision.backCameraMove(-1); return true;})), // Move the camera left
     cameraRight (new ButtonAction(() -> {Robot.vision.backCameraMove(1); return true;})), // Move the camera right

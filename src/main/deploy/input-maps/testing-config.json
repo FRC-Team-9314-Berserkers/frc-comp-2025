@@ -3,7 +3,9 @@
         {"A": "elevatorDown"},
         {"B": "elevatorUp"},
         {"X": "elevatorStop"},
-        {"Y": "elevatorEncoderZero"}
+        {"Y": "elevatorEncoderZero"},
+        {"LeftTrigger": "ouputOut"},
+        {"RightTrigger": "outputIntake"}
         
     ],
 
